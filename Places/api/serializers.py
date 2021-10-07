@@ -36,7 +36,8 @@ class ViewPlaceSerializer(ModelSerializer):
         fields='__all__' 
 
 
-class HomePlaces(ModelSerializer):
+class ViewPlaceSerializer(ModelSerializer):
+    images = PlaceImageSerializer(source='placeimage_set', many=True, read_only=True)
     class Meta:
         model=Places
         fields=[
